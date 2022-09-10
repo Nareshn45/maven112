@@ -3,21 +3,21 @@ pipeline
     agent any
     stages
     {
-        stage('ContinuousDownload')
+        stage('ContinuousDownload_Master')
         {
             steps
             {
                 git 'https://github.com/Nareshn45/maven112.git'
             }
         }
-        stage('ContinuousBuild')
+        stage('ContinuousBuild_Master')
         {
             steps
             {
                 sh 'mvn package'
             }
         }
-        stage('ContinuousDeployment')
+        stage('ContinuousDeployment_Master')
         {
             steps
             {
@@ -25,7 +25,7 @@ pipeline
 
             }
         }
-        stage('ContinuousTesting')
+        stage('ContinuousTesting_Master')
         {
             steps
             {
@@ -33,7 +33,7 @@ pipeline
                 sh 'java -jar /home/ubuntu/.jenkins/workspace/DeclarativePipeline/testing.jar'
             }
         }
-        stage('ContinuousDelivery')
+        stage('ContinuousDelivery_Master')
         {
             steps
             {
